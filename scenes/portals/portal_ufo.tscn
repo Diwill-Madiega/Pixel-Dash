@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfxg6a1il56wg"]
+
+[ext_resource type="Texture2D" uid="uid://5ng6isyd5al" path="res://sprites/portals/PortalUfo.png" id="1_7r6d6"]
+[ext_resource type="Script" path="res://scripts/gameplay_objects/portal_ufo.gd" id="1_iijpt"]
+
+[sub_resource type="Gradient" id="Gradient_kqup5"]
+colors = PackedColorArray(1, 1, 1, 0, 0.976919, 0.72305, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wrug"]
+size = Vector2(3, 16)
+
+[node name="PortalUfo" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_iijpt")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7r6d6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-14, 0)
+emission_shape = 3
+emission_rect_extents = Vector2(1, 6)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 14.0
+color = Color(0.972549, 0.964706, 0.870588, 1)
+color_ramp = SubResource("Gradient_kqup5")
+hue_variation_max = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_8wrug")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

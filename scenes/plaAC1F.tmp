@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwu55mor41eqb"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_0yil6"]
+[ext_resource type="Texture2D" uid="uid://6getwbqkbfdr" path="res://sprites/player/player.png" id="2_mq3s5"]
+[ext_resource type="PackedScene" uid="uid://c5jeeqiix3rd2" path="res://scenes/ui/pause_ui.tscn" id="3_we5p5"]
+[ext_resource type="PackedScene" uid="uid://yfgeb7hwo317" path="res://scenes/ui/level_completion.tscn" id="4_ufkhy"]
+[ext_resource type="Script" path="res://scripts/camera_follow.gd" id="5_wit2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb6n5"]
+size = Vector2(12, 12)
+
+[sub_resource type="Gradient" id="Gradient_sk8nh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+process_mode = 1
+collision_layer = 253
+script = ExtResource("1_0yil6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_mq3s5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wb6n5")
+
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 60
+lifetime = 0.5
+one_shot = true
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 120.0
+linear_accel_min = -10.0
+scale_amount_min = 0.75
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_sk8nh")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Node"]
+offset = Vector2(0, -20)
+zoom = Vector2(1.25, 1.25)
+script = ExtResource("5_wit2r")
+
+[node name="LevelCompletion" parent="Node/Camera2D" instance=ExtResource("4_ufkhy")]
+offset_left = -160.0
+offset_top = -87.0
+offset_right = -160.0
+offset_bottom = -87.0
+
+[node name="PauseUI" parent="Node/Camera2D" instance=ExtResource("3_we5p5")]
+visible = false
+offset_left = -120.0
+offset_top = -80.0
+offset_right = -120.0
+offset_bottom = -80.0
+scale = Vector2(0.75, 0.75)

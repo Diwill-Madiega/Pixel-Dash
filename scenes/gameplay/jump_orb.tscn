@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4hym5iyd2niu"]
+
+[ext_resource type="Script" path="res://scripts/gameplay_objects/jump_orb.gd" id="1_7r011"]
+[ext_resource type="Texture2D" uid="uid://dikhywcovwxc4" path="res://sprites/gameplay/jump_orb/JumpOrb_1.png" id="2_6yfpi"]
+[ext_resource type="Texture2D" uid="uid://1gngvqqr72ch" path="res://sprites/gameplay/jump_orb/JumpOrb_hit.png" id="2_tq10p"]
+[ext_resource type="Texture2D" uid="uid://8jdehfo57yg7" path="res://sprites/gameplay/jump_orb/JumpOrb_2.png" id="3_vhjvy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gidcg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awsfe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tq10p")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6yfpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vhjvy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="JumpOrb" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_7r011")
+
+[node name="Area2D" type="Area2D" parent="." groups=["jump_orb"]]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gidcg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_awsfe")
+animation = &"hit"
+frame_progress = 0.181907
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

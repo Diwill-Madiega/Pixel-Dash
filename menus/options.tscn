@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://umkswbta767x"]
+
+[ext_resource type="Script" path="res://scripts/ui/options.gd" id="1_bto5l"]
+[ext_resource type="Theme" uid="uid://bix6o75fprlk6" path="res://themes/progress_bar.tres" id="1_lksdw"]
+[ext_resource type="Theme" uid="uid://dicet0637vx7y" path="res://themes/gd_theme.tres" id="2_16mm0"]
+[ext_resource type="Texture2D" uid="uid://bvi4n6gtdafq8" path="res://sprites/UI/arrow.png" id="2_wyj6g"]
+[ext_resource type="PackedScene" uid="uid://bgykhy84bbrly" path="res://scenes/ui/fade_screen.tscn" id="3_qpy0q"]
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bto5l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 11.0
+offset_right = 191.0
+offset_bottom = 34.0
+text = "Options"
+
+[node name="Music" type="Label" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 64.0
+offset_right = 175.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 10
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX" type="Label" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 95.0
+offset_right = 169.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 10
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicModifier" type="HScrollBar" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 80.0
+offset_right = 210.0
+offset_bottom = 88.0
+theme = ExtResource("2_16mm0")
+value = 50.0
+
+[node name="SFXModifier" type="HScrollBar" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 111.0
+offset_right = 210.0
+offset_bottom = 119.0
+value = 20.0
+
+[node name="Bar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 37.0
+offset_right = 235.0
+offset_bottom = 39.0
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(-1, -1)
+theme = ExtResource("1_lksdw")
+icon = ExtResource("2_wyj6g")
+flat = true
+
+[node name="FadeScreen" parent="." instance=ExtResource("3_qpy0q")]
+layout_mode = 1
+mouse_filter = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

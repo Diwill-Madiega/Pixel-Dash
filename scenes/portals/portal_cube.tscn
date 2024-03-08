@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://jv72a0qb4mbl"]
+
+[ext_resource type="Script" path="res://scripts/gameplay_objects/portal_cube.gd" id="1_7kuby"]
+[ext_resource type="Texture2D" uid="uid://haiq11066um1" path="res://sprites/portals/PortalCube.png" id="1_vuxko"]
+
+[sub_resource type="Gradient" id="Gradient_m3eul"]
+colors = PackedColorArray(1, 1, 1, 0, 0.269748, 0.920517, 1.15514e-06, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6kp3"]
+size = Vector2(3, 16)
+
+[node name="PortalCube" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_7kuby")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-14, 0)
+emission_shape = 3
+emission_rect_extents = Vector2(1, 6)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 14.0
+color = Color(0.972549, 0.964706, 0.870588, 1)
+color_ramp = SubResource("Gradient_m3eul")
+hue_variation_max = 1.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_vuxko")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_e6kp3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

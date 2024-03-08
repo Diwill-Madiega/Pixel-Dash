@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c47sm4s7dy0eh"]
+
+[ext_resource type="Script" path="res://scripts/gameplay_objects/blue_pad.gd" id="1_a8o4b"]
+[ext_resource type="Texture2D" uid="uid://dyhne202nvq3h" path="res://sprites/gameplay/BluePad.png" id="1_ilcpf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3bld"]
+size = Vector2(8, 3)
+
+[sub_resource type="Gradient" id="Gradient_srnsj"]
+colors = PackedColorArray(0, 0.776471, 1, 1, 1, 1, 1, 0)
+
+[node name="BluePad" type="Node2D"]
+script = ExtResource("1_a8o4b")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ilcpf")
+
+[node name="Area2D" type="Area2D" parent="." groups=["jump_pad"]]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_y3bld")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+process_mode = 1
+position = Vector2(0, 5)
+lifetime = 1.5
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+color = Color(0.972549, 0.964706, 0.870588, 1)
+color_ramp = SubResource("Gradient_srnsj")
+hue_variation_max = 1.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

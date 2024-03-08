@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://4qa7wvvag0c1"]
+
+[ext_resource type="Texture2D" uid="uid://fxjrj40uw5s" path="res://sprites/ground.png" id="1_i7lf2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2d58e"]
+size = Vector2(52, 27)
+
+[node name="Ground" type="Node2D"]
+
+[node name="GroundPart1" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="GroundPart1"]
+texture = ExtResource("1_i7lf2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundPart1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundPart1/StaticBody2D"]
+shape = SubResource("RectangleShape2D_2d58e")
+
+[node name="GroundPart2" type="Node2D" parent="."]
+position = Vector2(52, 0)
+
+[node name="Sprite" type="Sprite2D" parent="GroundPart2"]
+texture = ExtResource("1_i7lf2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundPart2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundPart2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_2d58e")
+
+[node name="GroundPart3" type="Node2D" parent="."]
+position = Vector2(104, 0)
+
+[node name="Sprite" type="Sprite2D" parent="GroundPart3"]
+texture = ExtResource("1_i7lf2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundPart3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundPart3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_2d58e")

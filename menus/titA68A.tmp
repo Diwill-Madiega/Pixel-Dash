@@ -1,0 +1,155 @@
+[gd_scene load_steps=17 format=3 uid="uid://q5cejeihef3r"]
+
+[ext_resource type="Script" path="res://scripts/ui/title_screen.gd" id="1_jj0ra"]
+[ext_resource type="AudioStream" uid="uid://dx5ipukmfj1dp" path="res://audio/sfx/confirm.wav" id="2_dj5i7"]
+[ext_resource type="Script" path="res://scripts/title_screen/background_move.gd" id="3_gd68i"]
+[ext_resource type="Texture2D" uid="uid://bkijm7u3o5bb1" path="res://sprites/background.png" id="4_wandp"]
+[ext_resource type="PackedScene" uid="uid://4qa7wvvag0c1" path="res://scenes/ground.tscn" id="5_swuy3"]
+[ext_resource type="Script" path="res://scripts/title_screen/ground_move.gd" id="6_hw28s"]
+[ext_resource type="Script" path="res://scripts/title_screen/background_cube.gd" id="7_pqpcm"]
+[ext_resource type="Texture2D" uid="uid://6getwbqkbfdr" path="res://sprites/player/player.png" id="8_toi6c"]
+[ext_resource type="Texture2D" uid="uid://cvrkipnnsrhei" path="res://sprites/UI/title.png" id="9_ikak7"]
+[ext_resource type="Theme" uid="uid://dicet0637vx7y" path="res://themes/gd_theme.tres" id="10_dywt2"]
+[ext_resource type="Texture2D" uid="uid://bgqhey4bcsnlm" path="res://sprites/UI/resume.png" id="11_esggc"]
+[ext_resource type="Texture2D" uid="uid://bqmpnjsxnycnx" path="res://sprites/UI/icons.png" id="12_prhwr"]
+[ext_resource type="Texture2D" uid="uid://dtakowf2yo3bi" path="res://sprites/UI/options.png" id="13_vrk0b"]
+[ext_resource type="PackedScene" uid="uid://bgykhy84bbrly" path="res://scenes/ui/fade_screen.tscn" id="14_3tcua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek7rl"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvmsk"]
+size = Vector2(624, 20)
+
+[node name="title_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jj0ra")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(130, 62)
+stream = ExtResource("2_dj5i7")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 150.0
+
+[node name="BG1" type="Control" parent="Background"]
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+script = ExtResource("3_gd68i")
+
+[node name="Background1" type="Sprite2D" parent="Background/BG1"]
+position = Vector2(34.4, 71)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_wandp")
+
+[node name="Background2" type="Sprite2D" parent="Background/BG1"]
+position = Vector2(162.4, 71)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_wandp")
+
+[node name="Background3" type="Sprite2D" parent="Background/BG1"]
+position = Vector2(289.4, 71)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_wandp")
+
+[node name="BG2" type="Control" parent="Background"]
+anchors_preset = 0
+offset_left = 394.0
+offset_right = 434.0
+offset_bottom = 40.0
+script = ExtResource("3_gd68i")
+
+[node name="Background1" type="Sprite2D" parent="Background/BG2"]
+position = Vector2(34.4, 71)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_wandp")
+
+[node name="Background2" type="Sprite2D" parent="Background/BG2"]
+position = Vector2(162.4, 71)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_wandp")
+
+[node name="Background3" type="Sprite2D" parent="Background/BG2"]
+position = Vector2(289.4, 71)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("4_wandp")
+
+[node name="Ground" parent="Background" instance=ExtResource("5_swuy3")]
+position = Vector2(208, 167)
+scale = Vector2(2.2, 2.2)
+script = ExtResource("6_hw28s")
+
+[node name="Ground2" parent="Background" instance=ExtResource("5_swuy3")]
+position = Vector2(-107, 167)
+scale = Vector2(2.2, 2.2)
+script = ExtResource("6_hw28s")
+
+[node name="BackgroundCube" type="CharacterBody2D" parent="."]
+position = Vector2(-74, 124)
+scale = Vector2(2, 2)
+script = ExtResource("7_pqpcm")
+
+[node name="Sprite" type="Sprite2D" parent="BackgroundCube"]
+texture = ExtResource("8_toi6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundCube"]
+shape = SubResource("RectangleShape2D_ek7rl")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(160, 25)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ikak7")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 62.0
+offset_right = 190.0
+offset_bottom = 122.0
+theme = ExtResource("10_dywt2")
+icon = ExtResource("11_esggc")
+icon_alignment = 1
+
+[node name="IconsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 70.0
+offset_right = 100.0
+offset_bottom = 115.0
+theme = ExtResource("10_dywt2")
+icon = ExtResource("12_prhwr")
+icon_alignment = 1
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 70.0
+offset_right = 265.0
+offset_bottom = 115.0
+theme = ExtResource("10_dywt2")
+icon = ExtResource("13_vrk0b")
+icon_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(159, 151)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6, 0)
+shape = SubResource("RectangleShape2D_hvmsk")
+
+[node name="FadeScreen" parent="." instance=ExtResource("14_3tcua")]
+layout_mode = 1
+mouse_filter = 2
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="IconsButton" to="." method="_on_icons_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

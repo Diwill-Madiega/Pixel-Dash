@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://yfgeb7hwo317"]
+
+[ext_resource type="Script" path="res://scripts/ui/level_completion.gd" id="1_q0nsq"]
+[ext_resource type="Theme" uid="uid://dicet0637vx7y" path="res://themes/gd_theme.tres" id="2_bfmk3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwsiv"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3iw1u"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_6xcg1"]
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_kwsiv")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_3iw1u")
+
+[sub_resource type="FontVariation" id="FontVariation_mt5u2"]
+
+[node name="LevelCompletion" type="Control"]
+process_mode = 1
+z_index = 9
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q0nsq")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 4.0
+offset_right = 260.0
+offset_bottom = 13.0
+theme = SubResource("Theme_6xcg1")
+theme_override_fonts/font = SubResource("FontVariation_mt5u2")
+theme_override_font_sizes/font_size = 6
+step = 0.0
+value = 100.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 3.0
+offset_right = 262.0
+offset_bottom = 14.0
+theme = ExtResource("2_bfmk3")

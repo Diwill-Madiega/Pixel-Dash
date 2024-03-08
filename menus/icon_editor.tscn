@@ -1,0 +1,294 @@
+[gd_scene load_steps=25 format=3 uid="uid://cnvly7u68sbry"]
+
+[ext_resource type="Texture2D" uid="uid://6getwbqkbfdr" path="res://sprites/player/player.png" id="1_nr0q7"]
+[ext_resource type="Script" path="res://scripts/ui/icon_editor.gd" id="1_q7i6e"]
+[ext_resource type="Theme" uid="uid://bix6o75fprlk6" path="res://themes/progress_bar.tres" id="2_2f3ry"]
+[ext_resource type="Texture2D" uid="uid://bvi4n6gtdafq8" path="res://sprites/UI/arrow.png" id="2_78hxd"]
+[ext_resource type="Texture2D" uid="uid://rufw423d1ukq" path="res://sprites/player_icons/icon_1.png" id="2_n8ir2"]
+[ext_resource type="Texture2D" uid="uid://ctkn2qn8ct8yd" path="res://sprites/player_icons/icon_2.png" id="3_tavow"]
+[ext_resource type="PackedScene" uid="uid://bgykhy84bbrly" path="res://scenes/ui/fade_screen.tscn" id="5_fhiw5"]
+[ext_resource type="Texture2D" uid="uid://b32pfr0q56e8k" path="res://sprites/player_icons/icon_3.png" id="5_gmrwq"]
+[ext_resource type="Texture2D" uid="uid://2o0rvmd0e7u7" path="res://sprites/player_icons/icon_4.png" id="6_imd4a"]
+[ext_resource type="Texture2D" uid="uid://tmxof66r5xhx" path="res://sprites/player_icons/icon_5.png" id="7_542x4"]
+[ext_resource type="Texture2D" uid="uid://d4aixwaafdsd" path="res://sprites/player_icons/icon_6.png" id="8_riuaf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17ryh"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0utw"]
+bg_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvwoa"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuo2r"]
+bg_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aul0n"]
+bg_color = Color(1, 0.501961, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdfr6"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1cuq"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63b7a"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi4ff"]
+bg_color = Color(1, 0, 0.47451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knfl1"]
+bg_color = Color(0.501961, 0, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvwgg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grpwm"]
+bg_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoygi"]
+bg_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="icon_editor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7i6e")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(-1, -1)
+theme = ExtResource("2_2f3ry")
+icon = ExtResource("2_78hxd")
+flat = true
+
+[node name="PlayerPreview" type="Sprite2D" parent="."]
+position = Vector2(160, 40)
+scale = Vector2(2, 2)
+texture = ExtResource("1_nr0q7")
+
+[node name="Bar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 65.0
+offset_right = 290.0
+offset_bottom = 67.0
+
+[node name="Icons" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 85.0
+offset_right = 233.0
+offset_bottom = 106.0
+
+[node name="Icon1" type="Button" parent="Icons"]
+layout_mode = 2
+icon = ExtResource("2_n8ir2")
+
+[node name="Icon2" type="Button" parent="Icons"]
+layout_mode = 2
+icon = ExtResource("3_tavow")
+
+[node name="Icon3" type="Button" parent="Icons"]
+layout_mode = 2
+icon = ExtResource("5_gmrwq")
+
+[node name="Icon4" type="Button" parent="Icons"]
+layout_mode = 2
+icon = ExtResource("6_imd4a")
+
+[node name="Icon5" type="Button" parent="Icons"]
+layout_mode = 2
+icon = ExtResource("7_542x4")
+
+[node name="Icon6" type="Button" parent="Icons"]
+layout_mode = 2
+icon = ExtResource("8_riuaf")
+
+[node name="ColorsBackground" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 140.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="Colors" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 148.0
+offset_right = 296.0
+offset_bottom = 171.0
+
+[node name="Color1" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_17ryh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_17ryh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_17ryh")
+text = "     "
+
+[node name="Color2" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_l0utw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l0utw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l0utw")
+text = "     "
+
+[node name="Color3" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvwoa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qvwoa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qvwoa")
+text = "     "
+
+[node name="Color4" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fuo2r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fuo2r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fuo2r")
+text = "     "
+
+[node name="Color5" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_aul0n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aul0n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aul0n")
+text = "     "
+
+[node name="Color6" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bdfr6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f1cuq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_63b7a")
+text = "     "
+
+[node name="Color7" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi4ff")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fi4ff")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fi4ff")
+text = "     "
+
+[node name="Color8" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_knfl1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_knfl1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_knfl1")
+text = "     "
+
+[node name="Color9" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wvwgg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wvwgg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvwgg")
+text = "     "
+
+[node name="Color10" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_grpwm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_grpwm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_grpwm")
+text = "     "
+
+[node name="Color11" type="Button" parent="Colors"]
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yoygi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yoygi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yoygi")
+text = "     "
+
+[node name="FadeScreen" parent="." instance=ExtResource("5_fhiw5")]
+layout_mode = 1
+mouse_filter = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Icons/Icon1" to="." method="_on_icon_1_pressed"]
+[connection signal="pressed" from="Icons/Icon2" to="." method="_on_icon_2_pressed"]
+[connection signal="pressed" from="Icons/Icon3" to="." method="_on_icon_3_pressed"]
+[connection signal="pressed" from="Icons/Icon4" to="." method="_on_icon_4_pressed"]
+[connection signal="pressed" from="Icons/Icon5" to="." method="_on_icon_5_pressed"]
+[connection signal="pressed" from="Icons/Icon6" to="." method="_on_icon_6_pressed"]
+[connection signal="pressed" from="Colors/Color1" to="." method="_on_color_1_pressed"]
+[connection signal="pressed" from="Colors/Color2" to="." method="_on_color_2_pressed"]
+[connection signal="pressed" from="Colors/Color3" to="." method="_on_color_3_pressed"]
+[connection signal="pressed" from="Colors/Color4" to="." method="_on_color_4_pressed"]
+[connection signal="pressed" from="Colors/Color5" to="." method="_on_color_5_pressed"]
+[connection signal="pressed" from="Colors/Color6" to="." method="_on_color_6_pressed"]
+[connection signal="pressed" from="Colors/Color7" to="." method="_on_color_7_pressed"]
+[connection signal="pressed" from="Colors/Color8" to="." method="_on_color_8_pressed"]
+[connection signal="pressed" from="Colors/Color9" to="." method="_on_color_9_pressed"]
+[connection signal="pressed" from="Colors/Color10" to="." method="_on_color_10_pressed"]
+[connection signal="pressed" from="Colors/Color11" to="." method="_on_color_11_pressed"]

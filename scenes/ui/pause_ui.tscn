@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5jeeqiix3rd2"]
+
+[ext_resource type="Texture2D" uid="uid://ddwyhylka2t5d" path="res://sprites/UI/menu.png" id="1_25qvw"]
+[ext_resource type="Script" path="res://scripts/ui/pause_ui.gd" id="1_vusks"]
+[ext_resource type="Texture2D" uid="uid://bgqhey4bcsnlm" path="res://sprites/UI/resume.png" id="2_ac2n2"]
+[ext_resource type="Theme" uid="uid://dicet0637vx7y" path="res://themes/gd_theme.tres" id="2_qv8e2"]
+[ext_resource type="Texture2D" uid="uid://cx32jhyyhcbny" path="res://sprites/UI/restart.png" id="3_dfbi8"]
+
+[node name="PauseUI" type="Control"]
+process_mode = 3
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vusks")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 300.0
+offset_bottom = 165.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 25.0
+offset_right = 215.0
+offset_bottom = 49.0
+text = "Game Paused"
+
+[node name="ButtonMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 80.0
+offset_right = 110.0
+offset_bottom = 120.0
+theme = ExtResource("2_qv8e2")
+icon = ExtResource("1_25qvw")
+
+[node name="ButtonResume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 70.0
+offset_right = 190.0
+offset_bottom = 130.0
+theme = ExtResource("2_qv8e2")
+icon = ExtResource("2_ac2n2")
+icon_alignment = 1
+
+[node name="ButtonRestart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 80.0
+offset_right = 250.0
+offset_bottom = 120.0
+theme = ExtResource("2_qv8e2")
+icon = ExtResource("3_dfbi8")
+
+[connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="ButtonResume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="ButtonRestart" to="." method="_on_button_restart_pressed"]

@@ -1,0 +1,81 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dicet0637vx7y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1brhk"]
+bg_color = Color(0.12549, 0, 0.768627, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdy3e"]
+bg_color = Color(0.168627, 0, 0.968627, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1f4w"]
+bg_color = Color(0.32549, 0.435294, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfgso"]
+bg_color = Color(0.12549, 0, 0.768627, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhvhw"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 0)
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_1brhk")
+Button/styles/hover = SubResource("StyleBoxFlat_pdy3e")
+Button/styles/normal = SubResource("StyleBoxFlat_n1f4w")
+Button/styles/pressed = SubResource("StyleBoxFlat_kfgso")
+Panel/styles/panel = SubResource("StyleBoxFlat_uhvhw")
